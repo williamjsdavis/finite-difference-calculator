@@ -25,10 +25,8 @@ def parseStringInputs(stencilString, dimensionString):
                            "less than the number of points in your stencil.}$$")
             codeString = ''
         else:
-            print(stencilInts)
             latexString = stencilLatex(stencilInts, dimensionInt, 'f', 'x', 'h')
             codeString = stencilCode(stencilInts, dimensionInt, 'f', 'i', 'h')
-            print(latexString)
     else:
         codeString = ''
     return latexString, codeString
