@@ -20,21 +20,6 @@
     <!-- Get and set text -->
     <script type=text/javascript>
       $(function() {
-        $('a#process_input').bind('click', function() {
-          $.getJSON('/background_process', {
-            points_string: $('input[name="points_string"]').val(),
-            derivative_string: $('input[name="derivative_string"]').val(),
-          }, function(data) {
-            document.getElementById("latex_stencil").innerHTML = data.latex_str;
-            document.getElementById("code_stencil").innerHTML = data.code_str;
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, "latex_stencil"]);
-          });
-          return false;
-        });
-      });
-    </script>
-    <script type=text/javascript>
-      $(function() {
         $('#stencil_points').keyup( function() {
           $.getJSON('/background_process', {
             points_string: $('input[name="points_string"]').val(),
@@ -98,8 +83,6 @@
           <label for="Number Two">Derivative order</label>
           <input id="stencil_dim" type="text" value="2" placeholder="e.g. 2" name="derivative_string" />
         </div>
-
-        <a href=# id=process_input><button class='btn btn-default'>Submit</button></a>
       </form>
       
       <h4> Finite Difference Equation </h4>
