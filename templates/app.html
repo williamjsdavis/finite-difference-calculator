@@ -66,22 +66,24 @@
   </head>
   <body>
       
-    <div class="header">
-      <h2>Finite Difference Stencil Calculator</h2>
-      <small>By William Davis</small>
-    </div>
-
     <!-- Form -->
     <div class='container'>
+      
+      <div class="header">
+        <h2>Finite Difference Stencil Calculator</h2>
+        <small>By William Davis</small>
+      </div>
+      <br>
       <form>
         <div class="form-group">
-          <label for="Number One">Locations of sampled points</label>
-          <input id="stencil_points" type="text" value = "-2,-1,0,1,2" placeholder="e.g. -2,-1,0,1,2" name="points_string" />
+          <h4> Locations of Sampled Points</h4>
+          <input id="stencil_points" type="text" value="-2,-1,0,1,2" placeholder="e.g. -2,-1,0,1,2" name="points_string" autocomplete="off"/>
         </div>
 
         <div class="form-group">
-          <label for="Number Two">Derivative order</label>
-          <input id="stencil_dim" type="text" value="2" placeholder="e.g. 2" name="derivative_string" />
+          <h4> Derivative order</h4>
+          <input id="stencil_dim" type="text" value="2" placeholder="e.g. 2" name="derivative_string" autocomplete="off"/>
+          <br>
         </div>
       </form>
       
@@ -92,7 +94,21 @@
       <pre>
         <p id=code_stencil></p>
       </pre>
+      <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          How it works
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          <br>
+          <br>
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+      </div>
     </div>
-
   </body>
 </html>
