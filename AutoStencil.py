@@ -8,30 +8,32 @@ def parseStringInputs(stencilString, dimensionString):
         stencilInts = _makeStencilInts(stencilString)
         stencilSuccess = True
     except:
-        latexString = ("Please enter a comma-separated list of"
-                       "values for the locations of sampled points.")
+        latexString = ("$$\\text{Please enter a comma-separated list of"
+                       "values for the locations of sampled points.}$$")
         stencilSuccess = False
     try:
         dimensionInt = _makeDimInt(dimensionString)
         dimensionSuccess = True
     except:
-        latexString = ("Please enter a non-negative integer "
-                       "derivative order.")
+        latexString = ("$$\\text{Please enter a non-negative integer "
+                       "derivative order.}$$")
         dimensionSuccess = False
     
     if stencilSuccess and dimensionSuccess:
         if dimensionInt >= len(stencilInts):
-            latexString = ("Please enter a derivative order that is "
-                           "less than the number of points in your stencil.")
+            latexString = ("$$\\text{Please enter a derivative order that is "
+                           "less than the number of points in your stencil.}$$")
             codeString = ''
         else:
+            print(stencilInts)
             latexString = stencilLatex(stencilInts, dimensionInt, 'f', 'x', 'h')
             codeString = stencilCode(stencilInts, dimensionInt, 'f', 'i', 'h')
+            print(latexString)
     else:
         codeString = ''
     return latexString, codeString
 def _makeStencilInts(inString):
-    splitString = inString.split(',')
+    splitString = inString.replace(';',' ').replace(',',' ').split()
     nums = list(map(lambda x: int(float(x)), splitString))
     nums = sorted(list(set(nums)))
     return _np.array(nums)
@@ -110,7 +112,7 @@ def stencilLatex(C, d, functionName, functionVar, stepVar):
     dString = "{" + multiplier + stepVar + powerString + "}"
     
     # Make expression
-    fullExp = lhsString + "\\approx \\frac" + nString + dString
+    fullExp = '$$' + lhsString + "\\approx \\frac" + nString + dString + '$$'
     
     return fullExp
 def computeStencil(C, d):
