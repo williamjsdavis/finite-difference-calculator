@@ -9,35 +9,6 @@ app = Flask(__name__)
 def main():
     return render_template("app.html")
 
-@app.route("/", methods=['POST'])
-def calculate():
-    pointsString = request.form['num1']
-    dimString = request.form['num2']
-
-    latexString, codeString = austen.parseStringInputs(pointsString, dimString)
-    return render_template('app.html', resultLatex=latexString,
-                                       resultCode=codeString)
-
-@app.route('/get_word')
-def languages():
-    '''Return data in json format'''
-    lst = ["Python", 'HTML', 'JavaScript', 'CSS']
-    words = {}
-    words['choice'] = random.choice(lst)
-    dimString = str(random.randint(1,4))
-    pointsString = '-2,-1,0,1,2'
-    latexString, codeString = austen.parseStringInputs(pointsString, dimString)
-    words['latex'] = latexString
-    words['code'] = codeString
-    return jsonify(words)
-
-@app.route('/copy_word')
-def languages2():
-    '''Return data in json format'''
-    words = {}
-    words['choice'] = 'test'
-    return jsonify(words)
-
 @app.route('/background_process')
 def background_process():
     
