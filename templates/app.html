@@ -64,10 +64,10 @@
       });
     </script>
   </head>
-  <body>
-      
+  <body style="background-color:#366A91">
+      <h4><br/></h4> 
     <!-- Form -->
-    <div class='container'>
+    <div class='container' style="color:#6F6F6F;background-color:#FFFFFF;border-radius:10px">
       
       <div class="header">
         <h2>Finite Difference Stencil Calculator</h2>
@@ -105,8 +105,12 @@
           <br>
           <br>
           The method works by calculating Taylor series coefficients of the function and its derivatives at each sample point, then matrix algebra is used to determine the unknown coefficients of the stencil. In the original example the matrix algebra is calculated with floating point operations, then the stencil coefficients are determined by continued fraction truncation. In my implementation I defined matrix algebra methods with rational numbers, using <a href="https://github.com/williamjsdavis/RationalAlgebra">rationalalgebra.py</a>. That way the stencil coefficients can be calculated without approximation.
+          <br>
+          <br>
+          This site is <a href="https://github.com/williamjsdavis/finite-difference-calculator">open source</a>.
         </div>
       </div>
     </div>
+    <h1><br/></h1>
   </body>
 </html>
