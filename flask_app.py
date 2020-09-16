@@ -1,7 +1,6 @@
 # app.py
 from flask import Flask, render_template, request, jsonify
 import AutoStencil as austen
-import random
 
 app = Flask(__name__)
 
@@ -11,10 +10,6 @@ def main():
 
 @app.route('/background_process')
 def background_process():
-    
-
-    dimString = str(random.randint(1,4))
-    
     try:
         points_str = request.args.get('points_string', 0, type=str)
         derivative_str = request.args.get('derivative_string', 0, type=str)
